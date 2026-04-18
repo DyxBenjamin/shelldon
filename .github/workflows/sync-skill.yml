@@ -31,14 +31,10 @@ jobs:
 
       - name: Sync SKILL.md copies
         run: |
-          mkdir -p plugins/shelldon/skills/shelldon/
           cp skills/shelldon/SKILL.md plugins/shelldon/skills/shelldon/SKILL.md
 
       - name: Sync compress skill to plugin
         run: |
-          mkdir -p plugins/shelldon/skills/compress/
-          # Copy scripts verbatim
-          rm -rf plugins/shelldon/skills/compress/scripts
           cp -r skills/shelldon-compress/scripts plugins/shelldon/skills/compress/scripts
           rm -rf plugins/shelldon/skills/compress/scripts/__pycache__
 
