@@ -2,8 +2,8 @@
   "name": "S.H.E.L.L.",
   "description": "Semantic Heuristic Execution & Logic Layer. Ultra-compressed cognitive protocol for token optimization. Cuts ~75% of tokens while keeping full technical accuracy.",
   "author": {
-    "name": "Julius Brussee",
-    "url": "https://github.com/JuliusBrussee"
+    "name": "DyxBenjamin",
+    "url": "https://github.com/DyxBenjamin"
   },
   "hooks": {
     "SessionStart": [

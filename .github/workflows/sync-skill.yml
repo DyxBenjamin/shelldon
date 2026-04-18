@@ -31,10 +31,12 @@ jobs:
 
       - name: Sync SKILL.md copies
         run: |
+          mkdir -p plugins/shell/skills/shell/
           cp skills/shell/SKILL.md plugins/shell/skills/shell/SKILL.md
 
       - name: Sync compress skill to plugin
         run: |
+          mkdir -p plugins/shell/skills/compress/
           # Copy scripts verbatim
           rm -rf plugins/shell/skills/compress/scripts
           cp -r skills/shell-compress/scripts plugins/shell/skills/compress/scripts

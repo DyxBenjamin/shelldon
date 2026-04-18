@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "description": "S.H.E.L.L. (Semantic Heuristic Execution & Logic Layer). Ultra-compressed communication mode. Cut filler. Keep technical accuracy.",
   "author": {
-    "name": "Julius Brussee",
-    "url": "https://github.com/JuliusBrussee"
+    "name": "DyxBenjamin",
+    "url": "https://github.com/DyxBenjamin"
   },
-  "homepage": "https://github.com/JuliusBrussee/shell",
-  "repository": "https://github.com/JuliusBrussee/shell",
+  "homepage": "https://github.com/DyxBenjamin/shelldon",
+  "repository": "https://github.com/DyxBenjamin/shelldon",
   "license": "MIT",
   "keywords": [
     "productivity",
@@ -20,14 +20,14 @@
     "displayName": "S.H.E.L.L.",
     "shortDescription": "Talk in S.H.E.L.L. mode. Cut filler. Keep technical accuracy.",
     "longDescription": "Ultra-compressed communication mode for Codex. Use fewer words. Keep exact technical substance.",
-    "developerName": "Julius Brussee",
+    "developerName": "DyxBenjamin",
     "category": "Productivity",
     "capabilities": [
       "Write"
     ],
-    "websiteURL": "https://github.com/JuliusBrussee/shell",
-    "privacyPolicyURL": "https://github.com/JuliusBrussee/shell/blob/main/README.md",
-    "termsOfServiceURL": "https://github.com/JuliusBrussee/shell/blob/main/LICENSE",
+    "websiteURL": "https://github.com/DyxBenjamin/shelldon",
+    "privacyPolicyURL": "https://github.com/DyxBenjamin/shelldon/blob/main/README.md",
+    "termsOfServiceURL": "https://github.com/DyxBenjamin/shelldon/blob/main/LICENSE",
     "defaultPrompt": [
       "Use S.H.E.L.L. mode. Cut filler. Keep technical accuracy."
     ],
