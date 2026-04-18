@@ -1,0 +1,20 @@
+{
+  "name": "shell-repo",
+  "interface": {
+    "displayName": "S.H.E.L.L. Repo"
+  },
+  "plugins": [
+    {
+      "name": "shell",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shell"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

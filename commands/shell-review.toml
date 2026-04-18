@@ -1,0 +1,2 @@
+description = "Execute S.H.E.L.L. deterministic one-line code review"
+prompt = "Execute strict S.H.E.L.L. code review. Output one deterministic line per finding. Format: `L<line> [TELEMETRY] <State> -> <Impact> => <Remediation>`. Valid Telemetry: [ERR], [WARN], [NIT], [QUERY]. Suppress praise, conversational buffering, and subjective feedback. Target exclusively topological integrity, performance, and type safety. If no anomalies detected, output `[OK] LGTM` and terminate."

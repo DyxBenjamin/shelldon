@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "S.H.E.L.L.",
+  "description": "Semantic Heuristic Execution & Logic Layer. Ultra-compressed cognitive protocol for token optimization. Cuts ~75% of tokens while keeping full technical accuracy.",
+  "owner": {
+    "name": "Julius Brussee",
+    "url": "https://github.com/JuliusBrussee"
+  },
+  "plugins": [
+    {
+      "name": "shell",
+      "description": "Talk in S.H.E.L.L. mode. Cut ~75% tokens. Keep all technical accuracy.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

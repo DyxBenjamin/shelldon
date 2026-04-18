@@ -1,0 +1,2 @@
+description = "Execute S.H.E.L.L. telemetry-compliant commit generation"
+prompt = "Generate S.H.E.L.L. compliant Conventional Commit for staged changes. Subject: <type>(<scope>): <imperative_summary> (≤50 chars, no trailing period). Body: Required only for non-obvious causality. Enforce telemetry tags ([INFO], [WARN], [ERR], [OK]) and axiomatic causality (->, =>). Prioritize root-cause (why) over diff-description (what). Suppress all conversational syntax."

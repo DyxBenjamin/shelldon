@@ -1,0 +1,34 @@
+{
+  "name": "S.H.E.L.L.",
+  "description": "Semantic Heuristic Execution & Logic Layer. Ultra-compressed cognitive protocol for token optimization. Cuts ~75% of tokens while keeping full technical accuracy.",
+  "author": {
+    "name": "Julius Brussee",
+    "url": "https://github.com/JuliusBrussee"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/shell-activate.js\"",
+            "timeout": 5,
+            "statusMessage": "Loading S.H.E.L.L. mode..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/shell-mode-tracker.js\"",
+            "timeout": 5,
+            "statusMessage": "Tracking S.H.E.L.L. mode..."
+          }
+        ]
+      }
+    ]
+  }
+}
