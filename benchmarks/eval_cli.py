@@ -21,7 +21,7 @@ from pathlib import Path
 
 EVALS = Path(__file__).parent
 SKILLS = EVALS.parent / "skills"
-PROMPTS = EVALS / "prompts" / "en.txt"
+PROMPTS = EVALS / "prompts_evals.txt"
 SNAPSHOT = EVALS / "snapshots" / "results.json"
 
 TERSE_PREFIX = "Answer concisely."

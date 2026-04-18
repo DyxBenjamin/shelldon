@@ -47,7 +47,7 @@ def fmt_pct(x: float) -> str:
 
 def main() -> None:
     if not SNAPSHOT.exists():
-        print(f"No snapshot at {SNAPSHOT}. Run `python evals/llm_run.py` first.")
+        print(f"No snapshot at {SNAPSHOT}. Run `python benchmarks/eval_cli.py` first.")
         return
 
     data = json.loads(SNAPSHOT.read_text())
@@ -100,7 +100,7 @@ def main() -> None:
 
     print()
     print("_Savings = `1 - skill_tokens / terse_tokens` per prompt._")
-    print(f"_Source: {SNAPSHOT.name}. Refresh with `python evals/llm_run.py`._")
+    print(f"_Source: {SNAPSHOT.name}. Refresh with `python benchmarks/eval_cli.py`._")
 
 
 if __name__ == "__main__":

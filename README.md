@@ -382,14 +382,14 @@ A March 2026 paper ["Brevity Constraints Reverse Performance Hierarchies in Lang
 
 S.H.E.L.L. not just claim 75%. S.H.E.L.L. **prove** it.
 
-The `evals/` directory has a three-arm eval harness that measures real token compression against a proper control — not just "verbose vs skill" but "terse vs skill". Because comparing S.H.E.L.L. to verbose Gemini conflate the skill with generic terseness. That cheating. S.H.E.L.L. not cheat.
+The `benchmarks/` directory has a three-arm eval harness that measures real token compression against a proper control — not just "verbose vs skill" but "terse vs skill". Because comparing S.H.E.L.L. to verbose Gemini conflate the skill with generic terseness. That cheating. S.H.E.L.L. not cheat.
 
 ```bash
 # Run the eval
 uv run python evals/llm_run.py
 
 # Read results
-uv run --with tiktoken python evals/measure.py
+uv run --with tiktoken python evals/eval_measure.py
 ```
 
 ## Star This Repo
@@ -401,3 +401,5 @@ If S.H.E.L.L. save you mass token, mass money — leave mass star. ⭐
 ## License
 
 MIT — free like mass mammoth on open plain.
+en plain.
+
