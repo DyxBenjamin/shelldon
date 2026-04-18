@@ -46,7 +46,7 @@ fi
 
 HOOKS_DIR="$ECO_DIR/hooks"
 SETTINGS="$ECO_DIR/settings.json"
-REPO_URL="https://raw.githubusercontent.com/JuliusBrussee/shell/main/hooks"
+REPO_URL="https://raw.githubusercontent.com/DyxBenjamin/shelldon/main/hooks"
 
 HOOK_FILES=("package.json" "shell-config.js" "shell-activate.js" "shell-mode-tracker.js" "shell-statusline.sh")
 

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="plugins/shell/assets/shell.svg" width="120" />
+  <img src="plugins/shelldon/assets/shelldon.svg" width="120" />
 </p>
 
 <h1 align="center">S.H.E.L.L.</h1>
@@ -9,9 +9,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/JuliusBrussee/shell/stargazers"><img src="https://img.shields.io/github/stars/JuliusBrussee/shell?style=flat&color=yellow" alt="Stars"></a>
-  <a href="https://github.com/JuliusBrussee/shell/commits/main"><img src="https://img.shields.io/github/last-commit/JuliusBrussee/shell?style=flat" alt="Last Commit"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/JuliusBrussee/shell?style=flat" alt="License"></a>
+  <a href="https://github.com/DyxBenjamin/shelldon/stargazers"><img src="https://img.shields.io/github/stars/DyxBenjamin/shelldon?style=flat&color=yellow" alt="Stars"></a>
+  <a href="https://github.com/DyxBenjamin/shelldon/commits/main"><img src="https://img.shields.io/github/last-commit/DyxBenjamin/shelldon?style=flat" alt="Last Commit"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/DyxBenjamin/shelldon?style=flat" alt="License"></a>
 </p>
 
 <p align="center">
@@ -126,14 +126,14 @@ Pick your agent. One command. Done.
 
 | Agent | Install |
 |-------|---------|
-| **Gemini CLI** | `gemini extensions install https://github.com/JuliusBrussee/shell` |
-| **Claude Code** | `claude plugin marketplace add JuliusBrussee/shell && claude plugin install shell@shell` |
+| **Gemini CLI** | `gemini extensions install https://github.com/DyxBenjamin/shelldon` |
+| **Claude Code** | `claude plugin marketplace add DyxBenjamin/shelldon && claude plugin install shell@shell` |
 | **Codex** | Clone repo → `/plugins` → Search "S.H.E.L.L." → Install |
-| **Cursor** | `npx skills add JuliusBrussee/shell -a cursor` |
-| **Windsurf** | `npx skills add JuliusBrussee/shell -a windsurf` |
-| **Copilot** | `npx skills add JuliusBrussee/shell -a github-copilot` |
-| **Cline** | `npx skills add JuliusBrussee/shell -a cline` |
-| **Any other** | `npx skills add JuliusBrussee/shell` |
+| **Cursor** | `npx skills add DyxBenjamin/shelldon -a cursor` |
+| **Windsurf** | `npx skills add DyxBenjamin/shelldon -a windsurf` |
+| **Copilot** | `npx skills add DyxBenjamin/shelldon -a github-copilot` |
+| **Cline** | `npx skills add DyxBenjamin/shelldon -a cline` |
+| **Any other** | `npx skills add DyxBenjamin/shelldon` |
 
 Install once. Use in every session for that install target after that. One rock. That it.
 
@@ -145,7 +145,7 @@ Auto-activation is built in for Gemini CLI, Claude Code, and the repo-local Code
 |---------|:-----------:|:-----:|:----------:|:------:|:--------:|:-----:|:-------:|
 | S.H.E.L.L. mode | Y | Y | Y | Y | Y | Y | Y |
 | Auto-activate every session | Y | Y | Y¹ | —² | —² | —² | —² |
-| `/shell` command | Y | Y | Y¹ | — | — | — | — |
+| `/shelldon` command | Y | Y | Y¹ | — | — | — | — |
 | Mode switching (verbose/strict/axiomatic/soap) | Y | Y | Y¹ | Y³ | Y³ | — | — |
 | Statusline badge | — | Y⁴ | — | — | — | — | — |
 | shell-commit | Y | Y | — | Y | Y | Y | Y |
@@ -156,7 +156,7 @@ Auto-activation is built in for Gemini CLI, Claude Code, and the repo-local Code
 > [!NOTE]
 > Auto-activation works differently per agent: Gemini CLI uses `GEMINI.md` context files, Claude Code uses SessionStart hooks, this repo's Codex dogfood setup uses `.codex/hooks.json`. Cursor/Windsurf/Cline/Copilot can be made always-on, but `npx skills add` installs only the skill, not the repo rule/instruction files.
 >
-> ¹ Codex uses `$shell` syntax, not `/shell`. This repo ships `.codex/hooks.json`, so shell auto-starts when you run Codex inside this repo. The installed plugin itself gives you `$shell`; copy the same hook into another repo if you want always-on behavior there too. shell-commit and shell-review are not in the Codex plugin bundle — use the SKILL.md files directly.
+> ¹ Codex uses `$shell` syntax, not `/shelldon`. This repo ships `.codex/hooks.json`, so shell auto-starts when you run Codex inside this repo. The installed plugin itself gives you `$shell`; copy the same hook into another repo if you want always-on behavior there too. shell-commit and shell-review are not in the Codex plugin bundle — use the SKILL.md files directly.
 > ² Add the "Want it always on?" snippet below to those agents' system prompt or rule file if you want session-start activation.
 > ³ Cursor and Windsurf receive the full SKILL.md with all intensity levels. Mode switching works on-demand via the skill; no slash command.
 > ⁴ Available in Claude Code, but plugin install only nudges setup. Standalone `install.sh` / `install.ps1` configures it automatically when no custom `statusLine` exists.
@@ -165,15 +165,15 @@ Auto-activation is built in for Gemini CLI, Claude Code, and the repo-local Code
 <summary><strong>Gemini CLI — full details</strong></summary>
 
 ```bash
-gemini extensions install https://github.com/JuliusBrussee/shell
+gemini extensions install https://github.com/DyxBenjamin/shelldon
 ```
 
 Update: `gemini extensions update shell` · Uninstall: `gemini extensions uninstall shell`
 
 Auto-activates via `GEMINI.md` context file. Also ships custom Gemini commands:
-- `/shell` — switch intensity level (verbose/strict/axiomatic/soap)
-- `/shell-commit` — generate high-density commit message
-- `/shell-review` — one-line code review
+- `/shelldon` — switch intensity level (verbose/strict/axiomatic/soap)
+- `/shelldon-commit` — generate high-density commit message
+- `/shelldon-review` — one-line code review
 
 </details>
 
@@ -183,17 +183,17 @@ Auto-activates via `GEMINI.md` context file. Also ships custom Gemini commands:
 The plugin install gives you skills + auto-loading hooks. If no custom `statusLine` is configured, S.H.E.L.L. nudges Claude to offer badge setup on first session.
 
 ```bash
-claude plugin marketplace add JuliusBrussee/shell
+claude plugin marketplace add DyxBenjamin/shelldon
 claude plugin install shell@shell
 ```
 
 **Standalone hooks (without plugin):** If you prefer not to use the plugin system:
 ```bash
 # macOS / Linux / WSL
-bash <(curl -s https://raw.githubusercontent.com/JuliusBrussee/shell/main/hooks/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/DyxBenjamin/shelldon/main/hooks/install.sh)
 
 # Windows (PowerShell)
-irm https://raw.githubusercontent.com/JuliusBrussee/shell/main/hooks/install.ps1 | iex
+irm https://raw.githubusercontent.com/DyxBenjamin/shelldon/main/hooks/install.ps1 | iex
 ```
 
 Or from a local clone: `bash hooks/install.sh` / `powershell -File hooks\install.ps1`
@@ -236,10 +236,10 @@ codex_hooks = true
 
 | Agent | Command | Not installed | Mode switching | Always-on location |
 |-------|---------|--------------|:--------------:|--------------------|
-| Cursor | `npx skills add JuliusBrussee/shell -a cursor` | `.cursor/rules/shell.mdc` | Y | Cursor rules |
-| Windsurf | `npx skills add JuliusBrussee/shell -a windsurf` | `.windsurf/rules/shell.md` | Y | Windsurf rules |
-| Cline | `npx skills add JuliusBrussee/shell -a cline` | `.clinerules/shell.md` | — | Cline rules or system prompt |
-| Copilot | `npx skills add JuliusBrussee/shell -a github-copilot` | `.github/copilot-instructions.md` + `AGENTS.md` | — | Copilot custom instructions |
+| Cursor | `npx skills add DyxBenjamin/shelldon -a cursor` | `.cursor/rules/shelldon.mdc` | Y | Cursor rules |
+| Windsurf | `npx skills add DyxBenjamin/shelldon -a windsurf` | `.windsurf/rules/shelldon.md` | Y | Windsurf rules |
+| Cline | `npx skills add DyxBenjamin/shelldon -a cline` | `.clinerules/shelldon.md` | — | Cline rules or system prompt |
+| Copilot | `npx skills add DyxBenjamin/shelldon -a github-copilot` | `.github/copilot-instructions.md` + `AGENTS.md` | — | Copilot custom instructions |
 
 Uninstall: `npx skills remove shell`
 
@@ -253,20 +253,20 @@ Copilot works with Chat, Edits, and Coding Agent.
 [npx skills](https://github.com/vercel-labs/skills) supports 40+ agents:
 
 ```bash
-npx skills add JuliusBrussee/shell           # auto-detect agent
-npx skills add JuliusBrussee/shell -a amp
-npx skills add JuliusBrussee/shell -a augment
-npx skills add JuliusBrussee/shell -a goose
-npx skills add JuliusBrussee/shell -a kiro-cli
-npx skills add JuliusBrussee/shell -a roo
+npx skills add DyxBenjamin/shelldon           # auto-detect agent
+npx skills add DyxBenjamin/shelldon -a amp
+npx skills add DyxBenjamin/shelldon -a augment
+npx skills add DyxBenjamin/shelldon -a goose
+npx skills add DyxBenjamin/shelldon -a kiro-cli
+npx skills add DyxBenjamin/shelldon -a roo
 # ... and many more
 ```
 
 Uninstall: `npx skills remove shell`
 
-> **Windows note:** `npx skills` uses symlinks by default. If symlinks fail, add `--copy`: `npx skills add JuliusBrussee/shell --copy`
+> **Windows note:** `npx skills` uses symlinks by default. If symlinks fail, add `--copy`: `npx skills add DyxBenjamin/shelldon --copy`
 
-**Important:** These agents don't have a hook system, so S.H.E.L.L. won't auto-start. Say `/shell` or "activate shell mode" to activate each session.
+**Important:** These agents don't have a hook system, so S.H.E.L.L. won't auto-start. Say `/shelldon` or "activate shell mode" to activate each session.
 
 **Want it always on?** Paste this into your agent's system prompt or rules file — S.H.E.L.L. will be active from the first message, every session:
 
@@ -284,7 +284,7 @@ Where to put it:
 | Agent | File |
 |-------|------|
 | opencode | `.config/opencode/AGENTS.md` |
-| Roo | `.roo/rules/shell.md` |
+| Roo | `.roo/rules/shelldon.md` |
 | Amp | your workspace system prompt |
 | Others | your agent's system prompt or rules file |
 
@@ -293,7 +293,7 @@ Where to put it:
 ## Usage
 
 Trigger with:
-- `/shell` or Codex `$shell`
+- `/shelldon` or Codex `$shell`
 - "activate shell mode"
 - "talk in shell mode"
 - "less tokens please"
@@ -304,10 +304,10 @@ Stop with: "exit" or "normal mode"
 
 | Level | Trigger | What it do |
 |-------|---------|------------|
-| **Verbose** | `/shell verbose` | Drop filler, keep grammar. Professional but no fluff |
-| **Strict** | `/shell strict` | [DEFAULT]. Drop articles, fragments, telemetry hybrid |
-| **Axiomatic** | `/shell axiomatic` | Pure logical flow. Telegraphic. Operators only |
-| **SOAP** | `/shell soap` | S(ubjective), O(bjective), A(ssessment), P(lan) |
+| **Verbose** | `/shelldon verbose` | Drop filler, keep grammar. Professional but no fluff |
+| **Strict** | `/shelldon strict` | [DEFAULT]. Drop articles, fragments, telemetry hybrid |
+| **Axiomatic** | `/shelldon axiomatic` | Pure logical flow. Telegraphic. Operators only |
+| **SOAP** | `/shelldon soap` | S(ubjective), O(bjective), A(ssessment), P(lan) |
 
 Level stick until you change it or session end.
 
@@ -315,24 +315,24 @@ Level stick until you change it or session end.
 
 ### shell-commit
 
-`/shell-commit` — high-density commit messages. Conventional Commits. ≤50 char subject. Axiomatic causality body.
+`/shelldon-commit` — high-density commit messages. Conventional Commits. ≤50 char subject. Axiomatic causality body.
 
 ### shell-review
 
-`/shell-review` — one-line diagnostic per finding: `L42 [ERR] user(null) -> panic => inject guard.`
+`/shelldon-review` — one-line diagnostic per finding: `L42 [ERR] user(null) -> panic => inject guard.`
 
 ### shell-help
 
-`/shell-help` — telemetry-compliant quick-reference matrix. All modes and system extensions.
+`/shelldon-help` — telemetry-compliant quick-reference matrix. All modes and system extensions.
 
 ### shell-compress
 
-`/shell-compress <filepath>` — S.H.E.L.L. make Gemini *speak* with fewer tokens. **Compress** make Gemini *read* fewer tokens.
+`/shelldon-compress <filepath>` — S.H.E.L.L. make Gemini *speak* with fewer tokens. **Compress** make Gemini *read* fewer tokens.
 
 Your `GEMINI.md` or `CLAUDE.md` loads on **every session start**. S.H.E.L.L. Compress rewrites memory files into axiomatic logic so agent reads less — without you losing the human-readable original.
 
 ```
-/shell-compress GEMINI.md
+/shelldon-compress GEMINI.md
 ```
 
 ```
@@ -349,7 +349,7 @@ GEMINI.original.md ← human-readable backup (you read and edit this)
 | `mixed-with-code.md` | 888 | 560 | **36.9%** |
 | **Average** | **898** | **481** | **46%** |
 
-Code blocks, URLs, file paths, commands, headings, dates, version numbers — anything technical passes through untouched. Only prose gets compressed. See the full [shell-compress README](skills/shell-compress/SKILL.md) for details. [Security note](skills/shell-compress/SECURITY.md): Snyk flags this as High Risk due to subprocess/file patterns — it's a false positive.
+Code blocks, URLs, file paths, commands, headings, dates, version numbers — anything technical passes through untouched. Only prose gets compressed. See the full [shell-compress README](skills/shelldon-compress/SKILL.md) for details. [Security note](skills/shelldon-compress/SECURITY.md): Snyk flags this as High Risk due to subprocess/file patterns — it's a false positive.
 
 ## Benchmarks
 
@@ -396,7 +396,7 @@ uv run --with tiktoken python evals/measure.py
 
 If S.H.E.L.L. save you mass token, mass money — leave mass star. ⭐
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JuliusBrussee/shell&type=Date)](https://star-history.com/#JuliusBrussee/shell&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=DyxBenjamin/shelldon&type=Date)](https://star-history.com/#DyxBenjamin/shelldon&Date)
 
 ## License
 

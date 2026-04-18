@@ -2,7 +2,7 @@
 # shell — uninstaller for the SessionStart + UserPromptSubmit hooks
 # Removes: hook files in ~/.gemini/hooks, settings.json entries, and the flag file
 # Usage: bash hooks/uninstall.sh
-#   or:  bash <(curl -s https://raw.githubusercontent.com/JuliusBrussee/shell/main/hooks/uninstall.sh)
+#   or:  bash <(curl -s https://raw.githubusercontent.com/DyxBenjamin/shelldon/main/hooks/uninstall.sh)
 set -e
 
 GEMINI_DIR="${GEMINI_CONFIG_DIR:-$HOME/.gemini}"

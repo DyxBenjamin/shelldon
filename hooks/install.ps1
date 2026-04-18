@@ -26,7 +26,7 @@ $EcoDir = if ($env:GEMINI_CONFIG_DIR) { $env:GEMINI_CONFIG_DIR }
 
 $HooksDir = Join-Path $EcoDir "hooks"
 $Settings = Join-Path $EcoDir "settings.json"
-$RepoUrl = "https://raw.githubusercontent.com/JuliusBrussee/shell/main/hooks"
+$RepoUrl = "https://raw.githubusercontent.com/DyxBenjamin/shelldon/main/hooks"
 
 $HookFiles = @("package.json", "shell-config.js", "shell-activate.js", "shell-mode-tracker.js", "shell-statusline.sh", "shell-statusline.ps1")
 
