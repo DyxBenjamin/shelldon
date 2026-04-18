@@ -1,1 +1,5 @@
+pyyaml
+tiktoken
 anthropic>=0.40.0
+plotly
+kaleido

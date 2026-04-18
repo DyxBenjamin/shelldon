@@ -1,0 +1,14 @@
+{
+  "name": "shelldon-benchmarks",
+  "version": "1.0.0",
+  "description": "Benchmark suite for S.H.E.L.L. skills",
+  "scripts": {
+    "bench": "python3 main.py run",
+    "bench:flash": "python3 main.py run --model flash",
+    "bench:pro": "python3 main.py run --model pro",
+    "report": "python3 main.py report",
+    "plot": "python3 eval_plot.py"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

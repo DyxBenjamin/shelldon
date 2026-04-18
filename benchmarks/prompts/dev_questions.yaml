@@ -1,0 +1,39 @@
+- id: react-rerender
+  category: frontend
+  prompt: "Why does my React component re-render every time the parent updates?"
+
+- id: db-pooling
+  category: backend
+  prompt: "Explain database connection pooling."
+
+- id: tcp-udp
+  category: networking
+  prompt: "What's the difference between TCP and UDP?"
+
+- id: node-memory-leak
+  category: backend
+  prompt: "How do I fix a memory leak in a long-running Node.js process?"
+
+- id: sql-explain
+  category: database
+  prompt: "What does the SQL EXPLAIN command tell me?"
+
+- id: hash-collision
+  category: algorithm
+  prompt: "How does a hash table handle collisions?"
+
+- id: cors-errors
+  category: web
+  prompt: "Why am I getting CORS errors in my browser console?"
+
+- id: debouncer
+  category: frontend
+  prompt: "What's the point of using a debouncer on a search input?"
+
+- id: git-rebase-merge
+  category: vcs
+  prompt: "How does git rebase differ from git merge?"
+
+- id: queue-vs-topic
+  category: backend
+  prompt: "When should I use a queue vs a topic in messaging systems?"

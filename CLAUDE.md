@@ -26,7 +26,7 @@ S.H.E.L.L. (Semantic Heuristic Execution & Logic Layer) makes AI coding agents r
 
 | File | What it controls |
 |------|-----------------|
-| `skills/shell/SKILL.md` | S.H.E.L.L. behavior: intensity modes, rules, auto-clarity, persistence. |
+| `skills/shelldon/SKILL.md` | S.H.E.L.L. behavior: intensity modes, rules, auto-clarity, persistence. |
 | `rules/shell-activate.md` | Always-on auto-activation rule body. |
 | `skills/shell-commit/SKILL.md` | S.H.E.L.L. commit message behavior. |
 | `skills/shell-review/SKILL.md` | S.H.E.L.L. code review behavior. |
@@ -37,7 +37,7 @@ S.H.E.L.L. (Semantic Heuristic Execution & Logic Layer) makes AI coding agents r
 
 | File | Synced from |
 |------|-------------|
-| `plugins/shelldon/skills/shell/SKILL.md` | `skills/shell/SKILL.md` |
+| `plugins/shelldon/skills/shelldon/SKILL.md` | `skills/shelldon/SKILL.md` |
 | `shell.skill` | ZIP of `skills/shell/` directory |
 | `.github/copilot-instructions.md` | `rules/shell-activate.md` |
 

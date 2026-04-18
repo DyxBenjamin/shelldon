@@ -1,67 +1,35 @@
 # Evals
 
-Measures real token compression of S.H.E.L.L. skills by running the same
-prompts through the active agent under three conditions and comparing the
-generated output token counts.
+Measures real token compression of S.H.E.L.L. skills.
 
-## The three arms
+## Architecture
 
-| Arm | System prompt |
-|-----|--------------|
-| `__baseline__` | none |
-| `__terse__` | `Answer concisely.` |
-| `<skill>` | `Answer concisely.\n\n{SKILL.md}` |
+- `benchmarks/main.py` — Unified CLI for running and reporting.
+- `benchmarks/prompts/` — YAML defined prompts.
+- `benchmarks/core/` — Execution and metrics logic.
+- `benchmarks/data/` — Snapshots and results.
 
-The honest delta for any skill is **`<skill>` vs `__terse__`** — i.e.
-how much the skill itself adds on top of a plain "be terse" instruction.
+## Usage
+
+From the `benchmarks/` directory:
+
+```bash
+# Run full suite (default flash)
+bun run bench
+
+# Run with specific models
+bun run bench:flash
+bun run bench:pro
+
+# Generate markdown report
+bun run report
+
+# Generate plots (requires plotly/kaleido)
+bun run plot
+```
 
 ## Why this design
 
-- **Real LLM output**, not hand-written examples.
-- **Same agent CLI** the skills target.
-- **Snapshot committed to git** for deterministic and free CI runs.
-- **Control arm** isolates the skill's contribution from the generic
-  "be terse" effect.
-
-## Files
-
-- `prompts_evals.txt` — fixed list of dev questions, one per line.
-- `eval_cli.py` — runs agent CLI per (prompt, arm), captures real LLM output, writes `snapshots/results.json`.
-- `eval_measure.py` — reads the snapshot, counts tokens, prints a markdown table.
-- `snapshots/results.json` — committed source of truth.
-
-## Refresh the snapshot
-
-```bash
-uv run python benchmarks/eval_cli.py
-```
-
-This calls the agent once per prompt × (N skills + 2 control arms). Use
-a small model to keep it cheap:
-
-```bash
-SHELL_EVAL_MODEL=claude-3-haiku-20240307 uv run python benchmarks/eval_cli.py
-```
-
-## Read the snapshot (no LLM, no API key, runs in CI)
-
-```bash
-uv run --with tiktoken python benchmarks/eval_measure.py
-```
-
-## Adding a prompt
-
-Append a line to `prompts_evals.txt`, then refresh the snapshot.
-
-## Adding a skill
-
-Drop a `skills/<name>/SKILL.md`, then refresh the snapshot. `eval_cli.py`
-picks up every skill directory automatically.
-
-## What this does NOT measure
-
-- **Fidelity** — does the compressed answer preserve the technical
-  claims?
-- **Latency or cost** — out of scope.
-- **Exact agent tokens** — Absolute numbers are approximate.
-.
+- **Snapshot-based**: Commits results to git for CI consistency.
+- **YAML Prompts**: Categorized and structured test cases.
+- **Control Arm**: Isolates skill impact from generic terseness.
