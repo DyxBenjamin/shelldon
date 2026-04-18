@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 S.H.E.L.L. Memory Compression Orchestrator
 
@@ -17,7 +16,6 @@ OUTER_FENCE_REGEX = re.compile(
     r"\A\s*(`{3,}|~{3,})[^\n]*\n(.*)\n\1\s*\Z", re.DOTALL
 )
 
-# Filenames and paths that almost certainly hold secrets or PII.
 SENSITIVE_BASENAME_REGEX = re.compile(
     r"(?ix)^("
     r"\.env(\..+)?"
@@ -39,7 +37,6 @@ SENSITIVE_NAME_TOKENS = (
     "apikey", "accesskey", "token", "privatekey",
 )
 
-
 def is_sensitive_path(filepath: Path) -> bool:
     """Heuristic denylist for files that must never be shipped to a third-party API."""
     name = filepath.name
@@ -51,7 +48,6 @@ def is_sensitive_path(filepath: Path) -> bool:
     # Normalize separators so "api-key" and "api_key" both match "apikey".
     lower = re.sub(r"[_\-\s.]", "", name.lower())
     return any(tok in lower for tok in SENSITIVE_NAME_TOKENS)
-
 
 def strip_llm_wrapper(text: str) -> str:
     """Strip outer ```markdown ... ``` fence when it wraps the entire output."""
@@ -65,33 +61,26 @@ from .validate import validate
 
 MAX_RETRIES = 2
 
-
-# ---------- Agent Calls ----------
-
-
 def call_agent(prompt: str) -> str:
-    \"\"\"Call the active AI agent to process the prompt.\"\"\"
-    # 1. Check for SHELL_AGENT env var
+    """Call the active AI agent to process the prompt."""
     agent_cmd = os.environ.get("SHELL_AGENT")
-    
-    # 2. Heuristic detection
+
     if not agent_cmd:
         for cmd in ["gemini", "claude", "codex"]:
             if shutil.which(cmd):
                 agent_cmd = cmd
                 break
-    
+
     if not agent_cmd:
         agent_cmd = "gemini" # Default fallback
-        
+
     try:
-        # specific handling for known CLIs
         cmd_args = [agent_cmd]
         if agent_cmd == "claude":
             cmd_args.append("--print")
         elif agent_cmd == "gemini":
             cmd_args.append("--print") # Assume Gemini CLI supports similar
-            
+
         result = subprocess.run(
             cmd_args,
             input=prompt,
@@ -103,9 +92,8 @@ def call_agent(prompt: str) -> str:
     except subprocess.CalledProcessError as e:
         raise RuntimeError(f"Agent ({agent_cmd}) call failed:\n{e.stderr}")
 
-
 def build_compress_prompt(original: str) -> str:
-    return f\"\"\"
+    return f"""
 Compress this markdown into S.H.E.L.L. format.
 
 STRICT RULES:
@@ -122,12 +110,11 @@ Only compress natural language.
 
 TEXT:
 {original}
-\"\"\"
-
+"""
 
 def build_fix_prompt(original: str, compressed: str, errors: List[str]) -> str:
-    errors_str = "\\n".join(f"- {e}" for e in errors)
-    return f\"\"\"You are fixing a S.H.E.L.L.-compressed markdown file. Specific validation errors were found.
+    errors_str = "\n".join(f"- {e}" for e in errors)
+    return f"""You are fixing a S.H.E.L.L.-compressed markdown file. Specific validation errors were found.
 
 CRITICAL RULES:
 - DO NOT recompress or rephrase the file
@@ -152,14 +139,9 @@ COMPRESSED (fix this):
 {compressed}
 
 Return ONLY the fixed compressed file. No explanation.
-\"\"\"
-
-
-# ---------- Core Logic ----------
-
+"""
 
 def compress_file(filepath: Path) -> bool:
-    # Resolve and validate path
     filepath = filepath.resolve()
     MAX_FILE_SIZE = 500_000  # 500KB
     if not filepath.exists():
@@ -167,7 +149,6 @@ def compress_file(filepath: Path) -> bool:
     if filepath.stat().st_size > MAX_FILE_SIZE:
         raise ValueError(f"File too large to compress safely (max 500KB): {filepath}")
 
-    # Refuse files that look like they contain secrets or PII.
     if is_sensitive_path(filepath):
         raise ValueError(
             f"Refusing to compress {filepath}: filename looks sensitive "
@@ -185,24 +166,20 @@ def compress_file(filepath: Path) -> bool:
     original_text = filepath.read_text(errors="ignore")
     backup_path = filepath.with_name(filepath.stem + ".original.md")
 
-    # Check if backup already exists to prevent accidental overwriting
     if backup_path.exists():
         print(f"⚠️ Backup file already exists: {backup_path}")
         print("The original backup may contain important content.")
         print("Aborting to prevent data loss. Please remove or rename the backup file if you want to proceed.")
         return False
 
-    # Step 1: Compress
     print("Compressing with agent...")
     compressed = call_agent(build_compress_prompt(original_text))
 
-    # Save original as backup, write compressed to original path
     backup_path.write_text(original_text)
     filepath.write_text(compressed)
 
-    # Step 2: Validate + Retry
     for attempt in range(MAX_RETRIES):
-        print(f"\\nValidation attempt {attempt + 1}")
+        print(f"\nValidation attempt {attempt + 1}")
 
         result = validate(backup_path, filepath)
 
@@ -215,7 +192,6 @@ def compress_file(filepath: Path) -> bool:
             print(f"   - {err}")
 
         if attempt == MAX_RETRIES - 1:
-            # Restore original on failure
             filepath.write_text(original_text)
             backup_path.unlink(missing_ok=True)
             print("❌ Failed after retries — original restored")

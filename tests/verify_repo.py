@@ -62,11 +62,11 @@ def read_json(path: Path) -> object:
 
 def verify_synced_files() -> None:
     section("Synced Files")
-    skill_source = ROOT / "skills/shell/SKILL.md"
+    skill_source = ROOT / "skills/shelldon/SKILL.md"
     rule_source = ROOT / "rules/shell-activate.md"
 
     skill_copies = [
-        ROOT / "plugins/shell/skills/shell/SKILL.md",
+        ROOT / "plugins/shelldon/skills/shelldon/SKILL.md",
     ]
     for copy in skill_copies:
         if copy.exists():
@@ -91,7 +91,7 @@ def verify_manifests_and_syntax() -> None:
         ROOT / ".claude-plugin/marketplace.json",
         ROOT / ".codex/hooks.json",
         ROOT / "gemini-extension.json",
-        ROOT / "plugins/shell/.codex-plugin/plugin.json",
+        ROOT / "plugins/shelldon/.codex-plugin/plugin.json",
     ]
     for path in manifest_paths:
         if path.exists():
@@ -148,7 +148,7 @@ def verify_compress_fixtures() -> None:
     section("Compress Fixtures")
     _, detect, validate = load_compress_modules()
 
-    fixtures = sorted((ROOT / "tests/shell-compress").glob("*.original.md"))
+    fixtures = sorted((ROOT / "tests/shelldon-compress").glob("*.original.md"))
     ensure(fixtures, "No shell-compress fixtures found")
 
     for original in fixtures:
