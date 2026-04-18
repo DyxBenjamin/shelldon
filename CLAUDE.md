@@ -37,7 +37,7 @@ S.H.E.L.L. (Semantic Heuristic Execution & Logic Layer) makes AI coding agents r
 
 | File | Synced from |
 |------|-------------|
-| `plugins/shell/skills/shell/SKILL.md` | `skills/shell/SKILL.md` |
+| `plugins/shelldon/skills/shell/SKILL.md` | `skills/shell/SKILL.md` |
 | `shell.skill` | ZIP of `skills/shell/` directory |
 | `.github/copilot-instructions.md` | `rules/shell-activate.md` |
 
@@ -86,7 +86,7 @@ How S.H.E.L.L. reaches each agent type:
 |-------|-----------|----------------|
 | Gemini CLI | Extension with `GEMINI.md` context file | Yes |
 | Claude Code | Plugin (hooks + skills) or standalone hooks | Yes |
-| Codex | Plugin in `plugins/shell/` + `.codex/hooks.json` | Yes |
+| Codex | Plugin in `plugins/shelldon/` + `.codex/hooks.json` | Yes |
 | Copilot | `.github/copilot-instructions.md` | Yes |
 
 ---

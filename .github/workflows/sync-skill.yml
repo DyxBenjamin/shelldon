@@ -4,10 +4,10 @@ on:
   push:
     branches: [main]
     paths:
-      - skills/shell/SKILL.md
+      - skills/shelldon/SKILL.md
       - rules/shell-activate.md
-      - skills/shell-compress/SKILL.md
-      - skills/shell-compress/scripts/**
+      - skills/shelldon-compress/SKILL.md
+      - skills/shelldon-compress/scripts/**
 
 concurrency:
   group: sync-skill
@@ -31,19 +31,19 @@ jobs:
 
       - name: Sync SKILL.md copies
         run: |
-          mkdir -p plugins/shell/skills/shell/
-          cp skills/shell/SKILL.md plugins/shell/skills/shell/SKILL.md
+          mkdir -p plugins/shelldon/skills/shelldon/
+          cp skills/shelldon/SKILL.md plugins/shelldon/skills/shelldon/SKILL.md
 
       - name: Sync compress skill to plugin
         run: |
-          mkdir -p plugins/shell/skills/compress/
+          mkdir -p plugins/shelldon/skills/compress/
           # Copy scripts verbatim
-          rm -rf plugins/shell/skills/compress/scripts
-          cp -r skills/shell-compress/scripts plugins/shell/skills/compress/scripts
-          rm -rf plugins/shell/skills/compress/scripts/__pycache__
+          rm -rf plugins/shelldon/skills/compress/scripts
+          cp -r skills/shelldon-compress/scripts plugins/shelldon/skills/compress/scripts
+          rm -rf plugins/shelldon/skills/compress/scripts/__pycache__
 
-      - name: Rebuild shell.skill ZIP
-        run: cd skills && zip -r ../shell.skill shell/
+      - name: Rebuild shelldon.skill ZIP
+        run: cd skills && zip -r ../shelldon.skill shelldon/
 
       - name: Sync auto-activation rules
         run: |
@@ -56,8 +56,8 @@ jobs:
       - name: Commit and push if changed
         run: |
           git add \
-            plugins/shell/ \
-            shell.skill \
+            plugins/shelldon/ \
+            shelldon.skill \
             .github/copilot-instructions.md
           git diff --staged --quiet && exit 0
           git commit -m "chore: sync S.H.E.L.L. SKILL.md copies and auto-activation rules [skip ci]"
